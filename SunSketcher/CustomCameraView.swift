@@ -25,6 +25,10 @@ struct CustomCameraView: View {
                 case .success(let photo):
                     if let data = photo.fileDataRepresentation() {
                         capturedImage = UIImage(data: data)
+                        
+                        // Save photo to photo library
+                        cameraService.savePhotoToLibrary(photo)
+                        
                         dismiss()
                         //presentationMode.wrappedValue.dismiss()
                     } else {

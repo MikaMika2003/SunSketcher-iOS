@@ -7,6 +7,7 @@
 
 import Foundation
 import AVFoundation
+import Photos
 
 class CameraService {
     
@@ -16,10 +17,18 @@ class CameraService {
     let output = AVCapturePhotoOutput()
     let previewLayer = AVCaptureVideoPreviewLayer()
     
+    
     // for automatic camera function
     var photoTimer: Timer?
     var photoCount = 0
-    var maxPhotoCount = 30
+    var maxPhotoCount = 10
+    
+    // Specify the directory where photos will be saved
+    /*let photoSaveDirectory: URL = {
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        return documentsDirectory.appendingPathComponent("CapturedPhotos")
+    }()*/
+    
     
     
     func start(delegate: AVCapturePhotoCaptureDelegate, completion: @escaping (Error?) -> ()) {
@@ -94,5 +103,40 @@ class CameraService {
         output.capturePhoto(with: settings, delegate: delegate!)
     }
     
+    func savePhotoToLibrary(_ photo: AVCapturePhoto) {
+        PHPhotoLibrary.shared().performChanges {
+            // Create a request to add the photo to the user's photo library
+            let request = PHAssetCreationRequest.forAsset()
+            
+            if let photoData = photo.fileDataRepresentation() {
+                request.addResource(with: .photo, data: photoData, options: nil)
+            }
+        } completionHandler: { success, error in
+            if success {
+                print("Photo saved to the user's photo library")
+            } else if let error = error {
+                print("Error saving photo to the library: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    
+    
+    //To save to a directory
+    /*func savePhoto(_ photo: AVCapturePhoto) {
+            // Generate a unique file name for each photo (e.g., using a timestamp)
+            let fileName = "photo_\(Date().timeIntervalSince1970).jpeg"
+            let photoURL = photoSaveDirectory.appendingPathComponent(fileName)
+            
+            // Save the photo data to the specified file URL
+            if let photoData = photo.fileDataRepresentation() {
+                do {
+                    try photoData.write(to: photoURL)
+                    print("Photo saved to: \(photoURL)")
+                } catch {
+                    print("Error saving photo: \(error.localizedDescription)")
+                }
+            }
+        }*/
     
 }
