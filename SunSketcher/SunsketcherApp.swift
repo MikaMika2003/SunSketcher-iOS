@@ -13,9 +13,9 @@ struct SunSketcherApp: App {
     
     var body: some Scene {
         WindowGroup {
-            //ContentView()
-                //.environmentObject(locationManager)
-            CameraUI()
+            ContentView()
+                .environmentObject(locationManager)
+            //CameraUI()
         }
         
         

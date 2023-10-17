@@ -16,8 +16,15 @@ class CameraService {
     let output = AVCapturePhotoOutput()
     let previewLayer = AVCaptureVideoPreviewLayer()
     
+    // for automatic camera function
+    var photoTimer: Timer?
+    var photoCount = 0
+    var maxPhotoCount = 30
+    
+    
     func start(delegate: AVCapturePhotoCaptureDelegate, completion: @escaping (Error?) -> ()) {
         self.delegate = delegate
+        checkPermissions(completion: completion)
     }
     
     private func checkPermissions(completion: @escaping (Error?) -> ()) {
@@ -61,12 +68,26 @@ class CameraService {
                 session.startRunning()
                 self.session = session
                 
+                // Start the timer to capture photos every 4 seconds
+                photoTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerFired), userInfo: nil, repeats: true)
+                
                 
             } catch {
                 completion(error)
             }
         }
         
+    }
+    
+    @objc func timerFired() {
+        capturePhoto()
+        
+        photoCount += 1
+        
+        // If we've reached the desired number of photos, stop the timer
+        if photoCount >= maxPhotoCount {
+            photoTimer?.invalidate()
+        }
     }
     
     func capturePhoto(with settings: AVCapturePhotoSettings = AVCapturePhotoSettings()) {
