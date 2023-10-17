@@ -7,22 +7,57 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8408892B2AD473A400F2A93C /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8408892A2AD473A400F2A93C /* CameraService.swift */; };
+		8408892D2AD477E500F2A93C /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8408892C2AD477E500F2A93C /* CameraView.swift */; };
 		8434D22A2A99221A0068D985 /* SunsketcherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434D2292A99221A0068D985 /* SunsketcherApp.swift */; };
 		8434D22C2A99221A0068D985 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434D22B2A99221A0068D985 /* ContentView.swift */; };
 		8434D22E2A99221B0068D985 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8434D22D2A99221B0068D985 /* Assets.xcassets */; };
 		8434D2312A99221B0068D985 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8434D2302A99221B0068D985 /* Preview Assets.xcassets */; };
+		8436F21B2AAB65B8002C4EAB /* TimeStamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436F21A2AAB65B8002C4EAB /* TimeStamp.swift */; };
+		848A5B462ABB39C1000DB76D /* CameraUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A5B452ABB39C1000DB76D /* CameraUI.swift */; };
+		848A5B482ABB3A64000DB76D /* CameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A5B472ABB3A64000DB76D /* CameraControl.swift */; };
+		84C307232AA8EC020052078B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C307222AA8EC020052078B /* LocationManager.swift */; };
+		84CDE40D2AB0C8560011ED23 /* LocToTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDE40C2AB0C8560011ED23 /* LocToTime.swift */; };
+		84D07C7B2AD5A1D4001E1DD4 /* CustomCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D07C7A2AD5A1D4001E1DD4 /* CustomCameraView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		84CDE4162AB0CB950011ED23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8434D21E2A99221A0068D985 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8434D2252A99221A0068D985;
+			remoteInfo = Sunsketcher;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		8408892A2AD473A400F2A93C /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CameraService.swift; path = SunSketcher/CameraService.swift; sourceTree = SOURCE_ROOT; };
+		8408892C2AD477E500F2A93C /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CameraView.swift; path = SunSketcher/CameraView.swift; sourceTree = SOURCE_ROOT; };
 		8434D2262A99221A0068D985 /* Sunsketcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sunsketcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8434D2292A99221A0068D985 /* SunsketcherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunsketcherApp.swift; sourceTree = "<group>"; };
 		8434D22B2A99221A0068D985 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8434D22D2A99221B0068D985 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8434D2302A99221B0068D985 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8436F21A2AAB65B8002C4EAB /* TimeStamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimeStamp.swift; path = Sunsketcher/TimeStamp.swift; sourceTree = SOURCE_ROOT; };
+		846E32A52ABA28E1004FEF60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		848A5B452ABB39C1000DB76D /* CameraUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CameraUI.swift; path = SunSketcher/CameraUI.swift; sourceTree = SOURCE_ROOT; };
+		848A5B472ABB3A64000DB76D /* CameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CameraControl.swift; path = SunSketcher/CameraControl.swift; sourceTree = SOURCE_ROOT; };
+		84C307222AA8EC020052078B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		84CDE40C2AB0C8560011ED23 /* LocToTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocToTime.swift; path = Sunsketcher/LocToTime.swift; sourceTree = SOURCE_ROOT; };
+		84CDE4122AB0CB950011ED23 /* SunsketcherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SunsketcherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		84D07C7A2AD5A1D4001E1DD4 /* CustomCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomCameraView.swift; path = SunSketcher/CustomCameraView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		8434D2232A99221A0068D985 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84CDE40F2AB0CB950011ED23 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -44,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				8434D2262A99221A0068D985 /* Sunsketcher.app */,
+				84CDE4122AB0CB950011ED23 /* SunsketcherTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -51,10 +87,19 @@
 		8434D2282A99221A0068D985 /* Sunsketcher */ = {
 			isa = PBXGroup;
 			children = (
+				846E32A52ABA28E1004FEF60 /* Info.plist */,
+				84CDE40C2AB0C8560011ED23 /* LocToTime.swift */,
+				84C307222AA8EC020052078B /* LocationManager.swift */,
+				8436F21A2AAB65B8002C4EAB /* TimeStamp.swift */,
 				8434D2292A99221A0068D985 /* SunsketcherApp.swift */,
 				8434D22B2A99221A0068D985 /* ContentView.swift */,
 				8434D22D2A99221B0068D985 /* Assets.xcassets */,
 				8434D22F2A99221B0068D985 /* Preview Content */,
+				848A5B452ABB39C1000DB76D /* CameraUI.swift */,
+				8408892A2AD473A400F2A93C /* CameraService.swift */,
+				8408892C2AD477E500F2A93C /* CameraView.swift */,
+				84D07C7A2AD5A1D4001E1DD4 /* CustomCameraView.swift */,
+				848A5B472ABB3A64000DB76D /* CameraControl.swift */,
 			);
 			path = Sunsketcher;
 			sourceTree = "<group>";
@@ -87,6 +132,24 @@
 			productReference = 8434D2262A99221A0068D985 /* Sunsketcher.app */;
 			productType = "com.apple.product-type.application";
 		};
+		84CDE4112AB0CB950011ED23 /* SunsketcherTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84CDE4182AB0CB950011ED23 /* Build configuration list for PBXNativeTarget "SunsketcherTests" */;
+			buildPhases = (
+				84CDE40E2AB0CB950011ED23 /* Sources */,
+				84CDE40F2AB0CB950011ED23 /* Frameworks */,
+				84CDE4102AB0CB950011ED23 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84CDE4172AB0CB950011ED23 /* PBXTargetDependency */,
+			);
+			name = SunsketcherTests;
+			productName = SunsketcherTests;
+			productReference = 84CDE4122AB0CB950011ED23 /* SunsketcherTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -100,9 +163,13 @@
 					8434D2252A99221A0068D985 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
+					84CDE4112AB0CB950011ED23 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 8434D2252A99221A0068D985;
+					};
 				};
 			};
-			buildConfigurationList = 8434D2212A99221A0068D985 /* Build configuration list for PBXProject "Sunsketcher" */;
+			buildConfigurationList = 8434D2212A99221A0068D985 /* Build configuration list for PBXProject "SunSketcher" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -116,6 +183,7 @@
 			projectRoot = "";
 			targets = (
 				8434D2252A99221A0068D985 /* Sunsketcher */,
+				84CDE4112AB0CB950011ED23 /* SunsketcherTests */,
 			);
 		};
 /* End PBXProject section */
@@ -130,6 +198,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		84CDE4102AB0CB950011ED23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -137,12 +212,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8408892B2AD473A400F2A93C /* CameraService.swift in Sources */,
 				8434D22C2A99221A0068D985 /* ContentView.swift in Sources */,
+				84D07C7B2AD5A1D4001E1DD4 /* CustomCameraView.swift in Sources */,
+				84CDE40D2AB0C8560011ED23 /* LocToTime.swift in Sources */,
+				8408892D2AD477E500F2A93C /* CameraView.swift in Sources */,
+				848A5B462ABB39C1000DB76D /* CameraUI.swift in Sources */,
 				8434D22A2A99221A0068D985 /* SunsketcherApp.swift in Sources */,
+				8436F21B2AAB65B8002C4EAB /* TimeStamp.swift in Sources */,
+				84C307232AA8EC020052078B /* LocationManager.swift in Sources */,
+				848A5B482ABB3A64000DB76D /* CameraControl.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84CDE40E2AB0CB950011ED23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		84CDE4172AB0CB950011ED23 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8434D2252A99221A0068D985 /* Sunsketcher */;
+			targetProxy = 84CDE4162AB0CB950011ED23 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		8434D2322A99221B0068D985 /* Debug */ = {
@@ -267,9 +365,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Sunsketcher/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = C6MX229DZ7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sunsketcher/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SunSketcher;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses the camera to capture photos.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app requires access to the device's location.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app requires access to the device's location.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -280,7 +384,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Sunsketcher;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.wku.sunsketcher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -296,9 +400,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Sunsketcher/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = C6MX229DZ7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sunsketcher/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SunSketcher;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses the camera to capture photos.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app requires access to the device's location.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app requires access to the device's location.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -309,7 +419,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Sunsketcher;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.wku.sunsketcher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -317,10 +427,52 @@
 			};
 			name = Release;
 		};
+		84CDE4192AB0CB950011ED23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SunsketcherTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sunsketcher.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Sunsketcher";
+			};
+			name = Debug;
+		};
+		84CDE41A2AB0CB950011ED23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SunsketcherTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sunsketcher.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Sunsketcher";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8434D2212A99221A0068D985 /* Build configuration list for PBXProject "Sunsketcher" */ = {
+		8434D2212A99221A0068D985 /* Build configuration list for PBXProject "SunSketcher" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8434D2322A99221B0068D985 /* Debug */,
@@ -334,6 +486,15 @@
 			buildConfigurations = (
 				8434D2352A99221B0068D985 /* Debug */,
 				8434D2362A99221B0068D985 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84CDE4182AB0CB950011ED23 /* Build configuration list for PBXNativeTarget "SunsketcherTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84CDE4192AB0CB950011ED23 /* Debug */,
+				84CDE41A2AB0CB950011ED23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
