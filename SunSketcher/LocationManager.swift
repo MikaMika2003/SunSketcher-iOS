@@ -51,6 +51,42 @@ extension LocationManager: CLLocationManagerDelegate {
             
         }
         
+        // Declare the LocToTime
+        let locToTime: LocToTime = LocToTime()
+        
+        // Set result as the return value from the calculate
+        let result = locToTime.calculatefor(lat: locationManager.location?.coordinate.latitude ?? 0.0, lon: locationManager.location?.coordinate.longitude ?? 0.0, alt: locationManager.location?.altitude ?? 0.0)
+        
+        //result is going to be in an array String
+        /*if result == ["N/A"] {
+             // Do something if the user isn't in an area in view of the eclipse
+            
+            
+        } else {
+            // Convert from string array to
+            let info = result[1]
+            
+            result[1] =
+        }
+        */
         
     }
+    
+    func convertTimeStringsToDates(timeStrings: [String]) -> [Date] {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "hh:mm:ss"
+        
+        var dateArray: [Date] = []
+        
+        for timeString in timeStrings {
+            if let date = dateFormatter.date(from: timeString) {
+                dateArray.append(date)
+            }
+        }
+        
+        return dateArray
+        
+    }
+    
+    
 }

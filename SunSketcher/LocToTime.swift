@@ -10,6 +10,8 @@ import SwiftUI
 
 public class LocToTime {
     
+    //let locationManager: LocationManager
+    
     @State private var obsvconst: [Double] = Array(repeating: 0.0, count: 7)
     
     //Aug. 21, 2017 (for testing)
@@ -360,7 +362,7 @@ public class LocToTime {
         var iter: Int
         var tmp: Double
 
-        mid[0] = 0
+        mid[0] = 0.0
         mid[1] = 0.0
         iter = 0
         tmp = 1.0
