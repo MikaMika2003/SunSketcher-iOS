@@ -77,7 +77,7 @@ class CameraService {
                 session.startRunning()
                 self.session = session
                 
-                // Start the timer to capture photos every 4 seconds
+                // Start the timer to capture photos every x seconds
                 photoTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerFired), userInfo: nil, repeats: true)
                 
                 

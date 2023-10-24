@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8408892B2AD473A400F2A93C /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8408892A2AD473A400F2A93C /* CameraService.swift */; };
 		8408892D2AD477E500F2A93C /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8408892C2AD477E500F2A93C /* CameraView.swift */; };
+		84194DA92AE83FBB0057A0EB /* Sunset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84194DA82AE83FBB0057A0EB /* Sunset.swift */; };
 		8434D22A2A99221A0068D985 /* SunsketcherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434D2292A99221A0068D985 /* SunsketcherApp.swift */; };
 		8434D22C2A99221A0068D985 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434D22B2A99221A0068D985 /* ContentView.swift */; };
 		8434D22E2A99221B0068D985 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8434D22D2A99221B0068D985 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		8408892A2AD473A400F2A93C /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CameraService.swift; path = SunSketcher/CameraService.swift; sourceTree = SOURCE_ROOT; };
 		8408892C2AD477E500F2A93C /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CameraView.swift; path = SunSketcher/CameraView.swift; sourceTree = SOURCE_ROOT; };
+		84194DA82AE83FBB0057A0EB /* Sunset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Sunset.swift; path = SunSketcher/Sunset.swift; sourceTree = SOURCE_ROOT; };
 		8434D2262A99221A0068D985 /* Sunsketcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sunsketcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8434D2292A99221A0068D985 /* SunsketcherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunsketcherApp.swift; sourceTree = "<group>"; };
 		8434D22B2A99221A0068D985 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				8408892C2AD477E500F2A93C /* CameraView.swift */,
 				84D07C7A2AD5A1D4001E1DD4 /* CustomCameraView.swift */,
 				848A5B472ABB3A64000DB76D /* CameraControl.swift */,
+				84194DA82AE83FBB0057A0EB /* Sunset.swift */,
 			);
 			path = Sunsketcher;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				8434D22A2A99221A0068D985 /* SunsketcherApp.swift in Sources */,
 				8436F21B2AAB65B8002C4EAB /* TimeStamp.swift in Sources */,
 				84C307232AA8EC020052078B /* LocationManager.swift in Sources */,
+				84194DA92AE83FBB0057A0EB /* Sunset.swift in Sources */,
 				848A5B482ABB3A64000DB76D /* CameraControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

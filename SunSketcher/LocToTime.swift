@@ -26,11 +26,11 @@ public class LocToTime {
     
     var month: [String] = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
     
-    var c1: [Double] = []
-    var c2: [Double] = []
-    var mid: [Double] = []
-    var c3: [Double] = []
-    var c4: [Double] = []
+    var c1: [Double] = [Double](repeating: 0.0, count: 41)
+    var c2: [Double] = [Double](repeating: 0.0, count: 41)
+    var mid: [Double] = [Double](repeating: 0.0, count: 41)
+    var c3: [Double] = [Double](repeating: 0.0, count: 41)
+    var c4: [Double] = [Double](repeating: 0.0, count: 41)
     
     static var currentTimePeriod = ""
     private static var loadedTimePeriods: [String] = []
