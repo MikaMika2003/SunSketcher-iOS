@@ -8,21 +8,33 @@
 import Foundation
 import SwiftUI
 
+
+//only makes sure that the user is in the eclipse path
 public class LocToTime {
     
     //let locationManager: LocationManager
     
-    @State private var obsvconst: [Double] = Array(repeating: 0.0, count: 7)
+    // Holds the observational constants that can be used for the location of the eclipse
+    @State private var obsvconst: [Double] = [Double](repeating: 0.0, count: 7)
     
     //Aug. 21, 2017 (for testing)
-    public var elements: [Double] = [2457987.268521,  18.0, -4.0, 4.0, 70.3, 70.3,
+    /*public var elements: [Double] = [2457987.268521,  18.0, -4.0, 4.0, 70.3, 70.3,
                                      -0.1295710,   0.5406426, -2.940e-05, -8.100e-06,
                                      0.4854160,  -0.1416400, -9.050e-05,  2.050e-06,
                                      11.8669596,  -0.0136220, -2.000e-06,
                                      89.2454300,  15.0039368,  0.000e-00,
                                      0.5420930,   0.0001241, -1.180e-05,
                                      -0.0040250,   0.0001234, -1.170e-05,
-                                     0.0046222,   0.0045992]
+                                     0.0046222,   0.0045992]*/
+    // For Apr 8, 2024
+    public var elements: [Double] = [2460232.250470, 18.0, -4.0, 4.0, 69.1, 69.1,     //Date, hour of greatest eclipse, delta T
+                                     0.1696573,   0.4585517,  0.0000278, -0.0000054,                                 //x
+                                     0.3348613,  -0.2413663,  0.0000241,  0.0000030,                                 //y
+                                    -8.2441736,  -0.0148882,  0.0000016,                                             //d
+                                    93.501741,   15.003529,  -0.000002,                                              //mu
+                                     0.5643306,  -0.0000891, -0.0000103,                                             //l1
+                                     0.0180827,  -0.0000886, -0.0000103,                                             //l2
+                                     0.0046882,   0.0046648]
     
     var month: [String] = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
     

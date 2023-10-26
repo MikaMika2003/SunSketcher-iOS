@@ -12,14 +12,32 @@ public class Sunset {
     
     public static func calcSun(lat: Double, lon: Double) -> String {
         let timezoneDiff: Int = -timeDiff()
-        let date: [Int] = getDate()
+        var date: [Int] = getDate()
         
-        let JD: Int = calcJD(date)
+        let JD: Int = calcJD(date: date)
         
         //daylight saving time boolean, assumed to be true for this test since it's being tested during daylight saving time so doesn't matter. also doesn't matter for actual eclipse because both October 14 and April 8 are in daylight saving time; false would be 0 though
         let daySaving: Int = 60
         
-        var newjd: Double = findRecentSunset()
+        var newjd: Double = findRecentSunset(jd: JD, latitude: lat, longitude: lon)
+        var newtime = calcSunsetUTC(JD: newjd, latitude: lat, longitude: lon)
+        
+        if (newtime > 1440) {
+            newtime -= 1440
+            newjd += 1.0
+        }
+        if (newtime < 0) {
+            newtime += 1440
+            newjd -= 1.0
+        }
+        
+        let spd = 60 * 60 * 24
+        //let sunset: Int64 = timeUnixMilDate(minutes: newtime, jd: newjd)
+        //let currentTime: Int64 = Int64(Date().timeIntervalSince1970 * 1000)
+        //let unixSunset: Int64 = (sunset % spd) + (currentTime - (currentTime % spd))
+
+        return timeUnixMilDate(minutes: newtime, jd: newjd)
+        
     }
     
     static func getDate() -> [Int] {
@@ -45,7 +63,8 @@ public class Sunset {
         let A: Int = Int(floor(Double(date[0]/100)))
         let B: Int = 2 - A + Int(floor(Double(A/4)))
         
-        let JD: Int = Int(floor(Double(365.25 * (date[0] + 4716)) + Math.floor(30.6001 * (date[1] + 1)) + date[2] + B - 1524.5)))
+        let temp = floor(Double(365.25 * (date[0] + 4716))) + floor(Double(30.6001 * (date[1] + 1))) + date[2] + B - 1524.5
+        let JD: Int = Int(temp)
         
         return JD
     }
@@ -58,7 +77,7 @@ public class Sunset {
         let e0: Double = calcMeanObliquityOfEcliptic(t: t)
         
         let omega: Double = 125.04 - 1934.136 * t
-        return e0 + 0.00256 * cos((Double.PI / 180) * omega)
+        return e0 + 0.00256 * cos((Double.pi / 180) * omega)
         
     }
     
@@ -198,7 +217,7 @@ public class Sunset {
         let floatSec: Double = 60.0 * (floatMinute - minute)
         var second: Int = Int(floor(Double(floatSec + 0.5)))
         
-        //long timeUnix = convertTimes(new double[]{hour, minute, second})
+        //let timeUnix: Int64 = convertTimes(start: [hour, minute, second])
         hour = convertHour(hour: hour)
         
         var secondStr: String
@@ -206,27 +225,107 @@ public class Sunset {
         var hourStr: String
         
         if(second < 10){
-            secondStr = "0" + second
+            secondStr = "0" + String(second)
         } else if(second == 60){
             second = 0
-            minute++
+            minute += 1
             secondStr = "00"
         } else {
-            secondStr = "" + second
+            secondStr = "" + String(second)
         }
         
         if(minute < 10){
-            minuteStr = "0" + minute
+            minuteStr = "0" + String(minute)
         } else {
-            minuteStr = "" + minute
+            minuteStr = "" + String(minute)
         }
         
-        hourStr = "" + hour
+        hourStr = "" + String(hour)
         
         var timeString: String = hourStr + ":" + minuteStr + ":" + secondStr
         
         
         return timeString
     }
+    
+    static func convertHour(hour: Int) -> Int {
+        var timeDiff: Int = 0
+        let timeZone = TimeZone.current
+        
+        
+        switch timeZone.abbreviation(){
+        case "HST":
+            timeDiff = -10
+        case "AKDT":
+            timeDiff = -8
+        case "PDT":
+            timeDiff = -7
+        case "MDT":
+            timeDiff = -6
+        case "CDT":
+            timeDiff = -5
+        case "EDT":
+            timeDiff = 4
+        default:
+            timeDiff = -3
+        }
+        
+        return hour + timeDiff
+    }
+    
+    //the calcSun function uses CDT as its base timezone, so we need to separately determine the difference in hours between CDT and the user's timezone
+    static func convertTimes(start: [Double]) -> Int64 {
+        
+        //we don't need to worry about standard timezones, since the actual eclipse is on 4/8, during daylight savings
+        var timeDiff: Int = 0
+        let timeZone = TimeZone.current
+        
+        switch timeZone.abbreviation() {
+        case "HST":
+            timeDiff = -6
+        case "AKDT":
+            timeDiff = -4
+        case "PDT":
+            timeDiff = -3
+        case "MDT":
+            timeDiff = -2
+        case "CDT":
+            timeDiff = -1
+        case "EDT":
+            timeDiff = 0
+        default:
+            timeDiff = -1
+        }
+        
+        //get current unix time, mod to get current unix date, add calculated time as unix time to get unix time of sunset
+        let current = Int64(Date().timeIntervalSince1970)
+        let timeUnix = (current - (current % (60 * 60 * 24))) + (Int64(start[0]) + Int64(timeDiff)) * 3600 + Int64(start[1]) * 60 + Int64(start[2])
+        
+        return timeUnix
+    }
+    
+    static func timeDiff() -> Int {
+        var hours: Int
+        let timeZone = TimeZone.current
+        
+        switch timeZone.abbreviation(){
+        case "HST":
+            hours = -10
+        case "AKDT":
+            hours = -8
+        case "PDT":
+            hours = -7
+        case "MDT":
+            hours = -6
+        case "CDT":
+            hours = -5
+        case "EDT":
+            hours = -4
+        default:
+            hours = -3
+        }
+        return hours
+    }
+    
     
 }
