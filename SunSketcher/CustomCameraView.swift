@@ -27,7 +27,8 @@ struct CustomCameraView: View {
                         capturedImage = UIImage(data: data)
                         
                         // Save photo to photo library
-                        cameraService.savePhotoToLibrary(photo)
+                        //cameraService.savePhotoToLibrary(photo)
+                        cameraService.savePhotoToDocumentDirectory(photo)
                         
                         dismiss()
                         //presentationMode.wrappedValue.dismiss()

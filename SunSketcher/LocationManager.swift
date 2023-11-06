@@ -55,9 +55,9 @@ extension LocationManager: CLLocationManagerDelegate {
         var lon = locationManager.location?.coordinate.longitude ?? 0.0
         var alt = locationManager.location?.altitude ?? 0.0
         
-        // Declare the LocToTime
+        // Declare the LocToTime and Sunset
         let locToTime: LocToTime = LocToTime()
-        
+        let sunset: Sunset = Sunset()
         
         
         // todo: for testing
@@ -75,7 +75,7 @@ extension LocationManager: CLLocationManagerDelegate {
         //let eclipseData: [String] = LocToTime.calculatefor(lat: 36.98605, lon: -86.45146, alt: 0); //8/21/2017
         
         //get actual device location for sunset timing (test stuff) TODO: remove for actual app releases
-        //String sunsetTime = Sunset.calcSun(lat, -lon); //make longitude negative as the sunset calculations use a positive westward latitude as opposed to the eclipse calculations using a positive eastward latitude
+        //let sunsetTime: String = sunset.calcSun(lat: lat, lon: -lon) //make longitude negative as the sunset calculations use a positive westward latitude as opposed to the eclipse calculations using a positive eastward latitude
 
         
         
@@ -83,8 +83,18 @@ extension LocationManager: CLLocationManagerDelegate {
         //eclipseData is going to be in an array String
         // make sure the user is in the eclipse path
         /*if eclipseData[0] != "N/A" {
-            let times = convertTimes(data: eclipseData)
-            let times = convertSunsetTime(data: [sunsetT])
+            let times: Int64 = convertTimes(data: eclipseData)
+            
+            //use the given times to create calendar objects to use in setting alarms
+            // Use the given times to create Calendar objects to use in setting alarms
+            var timeCals: [Calendar] = [Calendar.current, Calendar.current]
+
+            // Set the times in the Calendar objects
+            timeCals[0].time = Date(timeIntervalSince1970: TimeInterval(times[0]))
+            timeCals[1].time = Date(timeIntervalSince1970: TimeInterval(times[1]))
+            
+            
+
             
             
         } else {

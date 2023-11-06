@@ -11,16 +11,16 @@ import Foundation
 public class Sunset {
     
     public static func calcSun(lat: Double, lon: Double) -> String {
-        let timezoneDiff: Int = -timeDiff()
-        var date: [Int] = getDate()
+        let timezoneDiff: Int = -Sunset.timeDiff()
+        var date: [Int] = Sunset.getDate()
         
-        let JD: Int = calcJD(date: date)
+        let JD: Int = Sunset.calcJD(date: date)
         
         //daylight saving time boolean, assumed to be true for this test since it's being tested during daylight saving time so doesn't matter. also doesn't matter for actual eclipse because both October 14 and April 8 are in daylight saving time; false would be 0 though
         let daySaving: Int = 60
         
-        var newjd: Double = findRecentSunset(jd: JD, latitude: lat, longitude: lon)
-        var newtime = calcSunsetUTC(JD: newjd, latitude: lat, longitude: lon)
+        var newjd: Double = Double(Sunset.findRecentSunset(jd: Double(JD), latitude: lat, longitude: lon))
+        var newtime = Sunset.calcSunsetUTC(JD: newjd, latitude: lat, longitude: lon)
         
         if (newtime > 1440) {
             newtime -= 1440
@@ -36,7 +36,7 @@ public class Sunset {
         //let currentTime: Int64 = Int64(Date().timeIntervalSince1970 * 1000)
         //let unixSunset: Int64 = (sunset % spd) + (currentTime - (currentTime % spd))
 
-        return timeUnixMilDate(minutes: newtime, jd: newjd)
+        return Sunset.timeUnixMilDate(minutes: newtime, jd: newjd)
         
     }
     
@@ -45,7 +45,7 @@ public class Sunset {
         dateFormatter.dateFormat = "yyyy/MM/dd"
         
         let now = Date()
-        var date = dateFormatter.string(from: now)
+        let date = dateFormatter.string(from: now)
         print("Date: \(date)")
         
         let dateComponents = date.split(separator: "/").map { Int($0) }
@@ -55,6 +55,7 @@ public class Sunset {
     }
     
     static func calcJD(date: [Int]) -> Int {
+        var date = date
         if date[1] <= 2 {
             date[0] -= 1
             date[1] += 12
@@ -63,8 +64,7 @@ public class Sunset {
         let A: Int = Int(floor(Double(date[0]/100)))
         let B: Int = 2 - A + Int(floor(Double(A/4)))
         
-        let temp = floor(Double(365.25 * (date[0] + 4716))) + floor(Double(30.6001 * (date[1] + 1))) + date[2] + B - 1524.5
-        let JD: Int = Int(temp)
+        let JD = Int(floor(365.25 * (Double(date[0] + 4716)) + floor(30.6001 * (Double(date[1] + 1)) + Double(date[2]) + Double(B) - 1524.5)))
         
         return JD
     }
@@ -93,8 +93,8 @@ public class Sunset {
     }
     
     static func calcSunTrueLong(t: Double) -> Double {
-        var l0: Double = calcGeomMeanLongSun(t: t)
-        var c: Double = calcSunEqOfCenter(t: t)
+        let l0: Double = calcGeomMeanLongSun(t: t)
+        let c: Double = calcSunEqOfCenter(t: t)
         return l0 + c
         
     }
@@ -212,9 +212,9 @@ public class Sunset {
     static func timeUnixMilDate(minutes: Double, jd: Double) -> String {
         let floatHour: Double = minutes / 60.0
         var hour: Int = Int(floor(Double(floatHour)))
-        let floatMinute: Double = 60.0 * (floatHour - hour)
+        let floatMinute: Double = 60.0 * (floatHour - Double(hour))
         var minute: Int = Int(floor(Double(floatMinute)))
-        let floatSec: Double = 60.0 * (floatMinute - minute)
+        let floatSec: Double = 60.0 * (floatMinute - Double(minute))
         var second: Int = Int(floor(Double(floatSec + 0.5)))
         
         //let timeUnix: Int64 = convertTimes(start: [hour, minute, second])

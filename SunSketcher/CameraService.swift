@@ -120,6 +120,46 @@ class CameraService {
         }
     }
     
+    func savePhotoToDocumentDirectory(_ photo: AVCapturePhoto) {
+            // Specify the directory where photos will be saved (in your existing code)
+            let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            let photoSaveDirectory = documentsDirectory.appendingPathComponent("CapturedPhotos")
+            
+            // Create the directory if it doesn't exist
+            do {
+                try FileManager.default.createDirectory(at: photoSaveDirectory, withIntermediateDirectories: true, attributes: nil)
+            } catch {
+                print("Error creating directory: \(error.localizedDescription)")
+                return
+            }
+            
+            // Generate a unique filename based on the current date and time
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyyMMdd_HHmmss"
+            let fileName = "\(dateFormatter.string(from: Date())).jpg"
+            
+            // Save the photo to the document directory
+            let photoURL = photoSaveDirectory.appendingPathComponent(fileName)
+            
+            if let photoData = photo.fileDataRepresentation() {
+                do {
+                    try photoData.write(to: photoURL)
+                    print("Photo saved to: \(photoURL)")
+                    
+                    // Check time accuracy
+                    // Record the current date and time
+                    let creationDate = Date()
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                    let formattedCreationDate = dateFormatter.string(from: creationDate)
+                    print("Creation Date: \(formattedCreationDate)")
+                    
+                } catch {
+                    print("Error saving photo to file: \(error.localizedDescription)")
+                }
+            }
+        }
+    
     
     
     //To save to a directory
