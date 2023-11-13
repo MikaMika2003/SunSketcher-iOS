@@ -12,8 +12,6 @@ struct CustomCameraView: View {
     
     let cameraService = CameraService()
     @Binding var capturedImage: UIImage?
-    
-    //@Environment(\.presentationMode) private var presentationMode
     @Environment(\.dismiss) private var dismiss
     
     
@@ -24,14 +22,32 @@ struct CustomCameraView: View {
                 switch result {
                 case .success(let photo):
                     if let data = photo.fileDataRepresentation() {
-                        capturedImage = UIImage(data: data)
+                        
+                        // Convert the captured photo to UIImage
+                        if let image = UIImage(data: data) {
+                            
+                            // Save the photo with a custom name to the document directory
+                            cameraService.saveImageToDocumentDirectory(image)
+                            // Save photo to photo library in the "SunSketcher" album
+                            cameraService.savePhotoToLibrary(photo)
+                            capturedImage = image
+                            dismiss()
+                        } else {
+                            print("Error: Unable to convert photo to UIImage")
+                        }
+                        
+                        
+                        
+                        
+                        //capturedImage = UIImage(data: data)
                         
                         // Save photo to photo library
                         //cameraService.savePhotoToLibrary(photo)
-                        cameraService.savePhotoToDocumentDirectory(photo)
+                        //cameraService.savePhotoToDocumentDirectory(photo)
+ 
                         
-                        dismiss()
-                        //presentationMode.wrappedValue.dismiss()
+                        
+                        //dismiss()
                     } else {
                         print("Error: no image data found")
                     }
@@ -43,7 +59,7 @@ struct CustomCameraView: View {
                 
             }
             
-            VStack {
+            /*VStack {
                 Spacer()
                 
                 Button(action: {
@@ -54,7 +70,7 @@ struct CustomCameraView: View {
                         .foregroundColor(.white)
                 })
                 .padding(.bottom)
-            }
+            }*/
             
         }
     }

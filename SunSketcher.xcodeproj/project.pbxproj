@@ -14,7 +14,6 @@
 		8434D22C2A99221A0068D985 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434D22B2A99221A0068D985 /* ContentView.swift */; };
 		8434D22E2A99221B0068D985 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8434D22D2A99221B0068D985 /* Assets.xcassets */; };
 		8434D2312A99221B0068D985 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8434D2302A99221B0068D985 /* Preview Assets.xcassets */; };
-		848A5B462ABB39C1000DB76D /* CameraUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A5B452ABB39C1000DB76D /* CameraUI.swift */; };
 		848A5B482ABB3A64000DB76D /* CameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A5B472ABB3A64000DB76D /* CameraControl.swift */; };
 		84C307232AA8EC020052078B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C307222AA8EC020052078B /* LocationManager.swift */; };
 		84CDE40D2AB0C8560011ED23 /* LocToTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDE40C2AB0C8560011ED23 /* LocToTime.swift */; };
@@ -41,7 +40,6 @@
 		8434D22D2A99221B0068D985 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8434D2302A99221B0068D985 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		846E32A52ABA28E1004FEF60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		848A5B452ABB39C1000DB76D /* CameraUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CameraUI.swift; path = SunSketcher/CameraUI.swift; sourceTree = SOURCE_ROOT; };
 		848A5B472ABB3A64000DB76D /* CameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CameraControl.swift; path = SunSketcher/CameraControl.swift; sourceTree = SOURCE_ROOT; };
 		84C307222AA8EC020052078B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		84CDE40C2AB0C8560011ED23 /* LocToTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocToTime.swift; path = Sunsketcher/LocToTime.swift; sourceTree = SOURCE_ROOT; };
@@ -94,7 +92,6 @@
 				8434D22B2A99221A0068D985 /* ContentView.swift */,
 				8434D22D2A99221B0068D985 /* Assets.xcassets */,
 				8434D22F2A99221B0068D985 /* Preview Content */,
-				848A5B452ABB39C1000DB76D /* CameraUI.swift */,
 				8408892A2AD473A400F2A93C /* CameraService.swift */,
 				8408892C2AD477E500F2A93C /* CameraView.swift */,
 				84D07C7A2AD5A1D4001E1DD4 /* CustomCameraView.swift */,
@@ -217,7 +214,6 @@
 				84D07C7B2AD5A1D4001E1DD4 /* CustomCameraView.swift in Sources */,
 				84CDE40D2AB0C8560011ED23 /* LocToTime.swift in Sources */,
 				8408892D2AD477E500F2A93C /* CameraView.swift in Sources */,
-				848A5B462ABB39C1000DB76D /* CameraUI.swift in Sources */,
 				8434D22A2A99221A0068D985 /* SunsketcherApp.swift in Sources */,
 				84C307232AA8EC020052078B /* LocationManager.swift in Sources */,
 				84194DA92AE83FBB0057A0EB /* Sunset.swift in Sources */,
