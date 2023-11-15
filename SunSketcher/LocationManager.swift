@@ -15,6 +15,8 @@ class LocationManager: NSObject, ObservableObject {
     @Published var region = MKCoordinateRegion()
     //@Published var altitude: CLLocationDistance {get}
     
+    var timer: Timer?
+    
     private var locationCallback: ((CLLocation) -> Void)?
     private let locationManager = CLLocationManager()
     
@@ -37,6 +39,7 @@ class LocationManager: NSObject, ObservableObject {
 }
 
 extension LocationManager: CLLocationManagerDelegate {
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         //guard let location = locations.last else {return}
         //self.location = location
@@ -67,7 +70,7 @@ extension LocationManager: CLLocationManagerDelegate {
         
         
          //Set eclipseData as the return value from the calculate
-        let eclipseData: [String] = locToTime.calculatefor(lat: lat, lon: lon, alt: alt)
+        //let eclipseData: [String] = locToTime.calculatefor(lat: lat, lon: lon, alt: alt)
         
         //spoof location for eclipse testing; TODO: remove for actual app releases
         //let eclipseData: [String] = LocToTime.calculatefor(lat: 37.60786, lon: -91.02687, alt: 0); //4/8/2024
@@ -75,36 +78,66 @@ extension LocationManager: CLLocationManagerDelegate {
         //let eclipseData: [String] = LocToTime.calculatefor(lat: 36.98605, lon: -86.45146, alt: 0); //8/21/2017
         
         //get actual device location for sunset timing (test stuff) TODO: remove for actual app releases
-        //let sunsetTime: String = sunset.calcSun(lat: lat, lon: -lon) //make longitude negative as the sunset calculations use a positive westward latitude as opposed to the eclipse calculations using a positive eastward latitude
+        let sunsetTime: String = Sunset.calcSun(lat: lat, lon: -lon) //make longitude negative as the sunset calculations use a positive westward latitude as opposed to the eclipse calculations using a positive eastward latitude
 
         
         
         
         //eclipseData is going to be in an array String
         // make sure the user is in the eclipse path
-        /*if eclipseData[0] != "N/A" {
-            let times: Int64 = convertTimes(data: eclipseData)
+        if /*eclipseData[0] != "N/A"*/ true {
+            //let times: Int64 = convertTimes(data: eclipseData)
+            let times = convertSunsetTime(data: [sunsetTime, sunsetTime])
             
-            //use the given times to create calendar objects to use in setting alarms
             // Use the given times to create Calendar objects to use in setting alarms
-            var timeCals: [Calendar] = [Calendar.current, Calendar.current]
-
+            var timeCals = [Date(), Date()]
+            
             // Set the times in the Calendar objects
-            timeCals[0].time = Date(timeIntervalSince1970: TimeInterval(times[0]))
-            timeCals[1].time = Date(timeIntervalSince1970: TimeInterval(times[1]))
+            timeCals[0] = Date(timeIntervalSince1970: TimeInterval(times[0]))
+            timeCals[1] = Date(timeIntervalSince1970: TimeInterval(times[1]))
             
+            // for the final app, might want to add something that makes a countdown timer on screen tick down
+             // let details = "You are at lat: \(lat), lon: \(lon); The solar eclipse will start at the following time at your current location: \(timeCals[0].description)" // TODO: use for actual app releases
+             let details = "The app will now swap to the camera, where you will have 45 seconds to adjust the phone's position before it starts taking photos." // TODO: remove for actual app releases
+             // let details = "lat: \(lat); lon: \(lon); Sunset Time: \(timeCals[0].description)" // TODO: remove for actual app releases
+             print("Timing", details)
             
+            // button.text = details
+             // --------made it visible that something is happening--------
+
+             // store the unix time for the start and end of totality in UserDefaults
+             let prefs = UserDefaults.standard
+             prefs.setValue(times[0], forKey: "startTime")
+             prefs.setValue(times[1], forKey: "endTime")
+             prefs.setValue(Float(lat), forKey: "lat")
+             prefs.setValue(Float(lon), forKey: "lon")
+             prefs.setValue(Float(alt), forKey: "alt")
+
+             // go to camera 60 seconds prior, start taking images 15 seconds prior to 5 seconds after, and then at end of eclipse 5 seconds before and 15 after TODO: also for the sunset timing
+             // let date = Date(timeIntervalSince1970: (times[0] - 60)) // TODO: use
+             // the next line is a test case to make sure functionality works for eclipse timing
+             /*let date = Date(timeIntervalSinceNow: 5) // TODO: remove
+             print("SCHEDULE_CAMERA", date.description)
+
+             if timer == nil {
+                 print("Timing", "Creating timer.")
+                 timer = Timer()
+                 let cameraActivitySchedulerTask = TimeTask()
+                 timer?.schedule(cameraActivitySchedulerTask, at: date
+             }*/
 
             
             
         } else {
             // Do something if the user isn't in the eclipse path
+            // button.text = "Not in eclipse path."
+            print("Not in eclipse path.")
             
-            
-        }*/
-        
+        }
         
     }
+    
+    
     
     func convertTimes(data: [String]) -> [Int64] {
         let start = data[0].split(separator: ":").compactMap { Int($0) }
@@ -112,11 +145,11 @@ extension LocationManager: CLLocationManagerDelegate {
 
         // Add the actual time to the Unix time of UTC midnight for the start of that day
         // For April 8
-        // let startUnix = 1712534400 + (Int64(start[0]) * 3600) + (Int64(start[1]) * 60) + Int64(start[2])
-        // let endUnix = 1712534400 + (Int64(end[0]) * 3600) + (Int64(end[1]) * 60) + Int64(end[2])
+        let startUnix = 1712534400 + (Int64(start[0]) * 3600) + (Int64(start[1]) * 60) + Int64(start[2])
+        let endUnix = 1712534400 + (Int64(end[0]) * 3600) + (Int64(end[1]) * 60) + Int64(end[2])
         // For October 14
-        let startUnix: Int64 = 1697241600 + (Int64(start[0]) * 3600) + (Int64(start[1]) * 60) + Int64(start[2])
-        let endUnix: Int64 = 1697241600 + (Int64(end[0]) * 3600) + (Int64(end[1]) * 60) + Int64(end[2])
+        //let startUnix: Int64 = 1697241600 + (Int64(start[0]) * 3600) + (Int64(start[1]) * 60) + Int64(start[2])
+        //let endUnix: Int64 = 1697241600 + (Int64(end[0]) * 3600) + (Int64(end[1]) * 60) + Int64(end[2])
 
         return [startUnix, endUnix]
     }

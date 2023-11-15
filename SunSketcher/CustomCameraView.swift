@@ -31,7 +31,7 @@ struct CustomCameraView: View {
                             // Save photo to photo library in the "SunSketcher" album
                             cameraService.savePhotoToLibrary(photo)
                             capturedImage = image
-                            dismiss()
+                            //dismiss()
                         } else {
                             print("Error: Unable to convert photo to UIImage")
                         }

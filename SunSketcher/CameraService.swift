@@ -95,24 +95,23 @@ class CameraService {
             // Check if it's time to start capturing photos (13th of November at 11:50 AM)
             if self?.shouldStartCapturingPhotos() == true {
                 // Start capturing photos
-                self?.photoTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self!, selector: #selector(self!.timerFired), userInfo: nil, repeats: true)
+                self?.photoTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self!, selector: #selector(self!.timerFired), userInfo: nil, repeats: true)
             }
         }
 
         // Schedule the timer on the main run loop
         RunLoop.main.add(timer, forMode: .common)
     }
-    
-    
+
     
     func shouldStartCapturingPhotos() -> Bool {
         let currentDate = Date()
         let calendar = Calendar.current
         
         // Check if it's the specified time
-        return calendar.component(.hour, from: currentDate) == 15
-        && calendar.component(.minute, from: currentDate) == 32
-        && calendar.component(.day, from: currentDate) == 13
+        return calendar.component(.hour, from: currentDate) == 14
+        && calendar.component(.minute, from: currentDate) == 55
+        && calendar.component(.day, from: currentDate) == 15
         && calendar.component(.month, from: currentDate) == 11
     }
 
@@ -129,14 +128,14 @@ class CameraService {
             //pause for 2.5 minutes after the first 20 photos are taken
             photoTimer?.invalidate()
             DispatchQueue.main.asyncAfter(deadline: .now() + 150){
-                self.photoTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.timerFired), userInfo: nil, repeats: true)
+                self.photoTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.timerFired), userInfo: nil, repeats: true)
             }
         } else if photoCount == 21{
             //capture one photo after pausing for 2.5 minutes
             
             photoTimer?.invalidate()
             DispatchQueue.main.asyncAfter(deadline: .now() + 150){
-                self.photoTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.timerFired), userInfo: nil, repeats: true)
+                self.photoTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.timerFired), userInfo: nil, repeats: true)
                 
             }
             capturePhoto()
