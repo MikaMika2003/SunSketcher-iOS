@@ -95,21 +95,21 @@ class CameraService {
             // Check if it's time to start capturing photos (13th of November at 11:50 AM)
             if self?.shouldStartCapturingPhotos() == true {
                 // Start capturing photos
-                self?.photoTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self!, selector: #selector(self!.timerFired), userInfo: nil, repeats: true)
+                self?.photoTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self!, selector: #selector(self!.timerFired), userInfo: nil, repeats: true)
             }
         }
 
         // Schedule the timer on the main run loop
         RunLoop.main.add(timer, forMode: .common)
     }
-    
-    
+
     
     func shouldStartCapturingPhotos() -> Bool {
         let currentDate = Date()
         let calendar = Calendar.current
         
         // Check if it's the specified time
+     
         return calendar.component(.hour, from: currentDate) == 21
         && calendar.component(.minute, from: currentDate) == 00
         && calendar.component(.day, from: currentDate) == 23
