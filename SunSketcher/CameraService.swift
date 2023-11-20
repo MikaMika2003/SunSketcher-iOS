@@ -110,16 +110,16 @@ class CameraService {
         let calendar = Calendar.current
         
         // Check if it's the specified time
-        return calendar.component(.hour, from: currentDate) == 15
-        && calendar.component(.minute, from: currentDate) == 32
-        && calendar.component(.day, from: currentDate) == 13
+        return calendar.component(.hour, from: currentDate) == 21
+        && calendar.component(.minute, from: currentDate) == 00
+        && calendar.component(.day, from: currentDate) == 23
         && calendar.component(.month, from: currentDate) == 11
     }
 
         
     @objc func timerFired() {
         
-        //***** TWEAKED CODE TO RUN ARBUCKLES TEST ******//
+        //***** TWEAKED CODE TO RUN DR. ARBUCKLES TEST ******//
         if photoCount<20{
             //capture a photo every 0.l5 seconds for the first 20 photos
             capturePhoto()
@@ -129,14 +129,14 @@ class CameraService {
             //pause for 2.5 minutes after the first 20 photos are taken
             photoTimer?.invalidate()
             DispatchQueue.main.asyncAfter(deadline: .now() + 150){
-                self.photoTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.timerFired), userInfo: nil, repeats: true)
+                self.photoTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.timerFired), userInfo: nil, repeats: true)
             }
         } else if photoCount == 21{
             //capture one photo after pausing for 2.5 minutes
             
             photoTimer?.invalidate()
             DispatchQueue.main.asyncAfter(deadline: .now() + 150){
-                self.photoTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.timerFired), userInfo: nil, repeats: true)
+                self.photoTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.timerFired), userInfo: nil, repeats: true)
                 
             }
             capturePhoto()
