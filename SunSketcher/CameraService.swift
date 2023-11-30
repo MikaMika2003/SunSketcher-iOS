@@ -112,7 +112,7 @@ class CameraService {
      
         return calendar.component(.hour, from: currentDate) == 21
         && calendar.component(.minute, from: currentDate) == 00
-        && calendar.component(.day, from: currentDate) == 23
+        && calendar.component(.day, from: currentDate) == 21
         && calendar.component(.month, from: currentDate) == 11
     }
 
