@@ -36,6 +36,35 @@ class LocationManager: NSObject, ObservableObject {
         locationManager.startUpdatingLocation()
     }
     
+<<<<<<< Updated upstream:SunSketcher/LocationManager.swift
+=======
+    func requestLocationPermission() {
+        locationManager.requestWhenInUseAuthorization()
+    }
+
+    
+    
+    /*private func checkPermissions(completion: @escaping (Error?) -> ()) {
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
+            
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: .video) { [weak self] granted in
+                guard granted else {return}
+                
+            }
+        case .restricted:
+            break
+        case .denied:
+            break
+        case .authorized:
+            break
+        @unknown default:
+            break
+        }
+    }*/
+    
+    
+>>>>>>> Stashed changes:SunSketcher/Location/LocationManager.swift
 }
 
 extension LocationManager: CLLocationManagerDelegate {
@@ -54,7 +83,7 @@ extension LocationManager: CLLocationManagerDelegate {
             
         }
         
-        var lat = locationManager.location?.coordinate.latitude ?? 0.0
+        /*var lat = locationManager.location?.coordinate.latitude ?? 0.0
         var lon = locationManager.location?.coordinate.longitude ?? 0.0
         var alt = locationManager.location?.altitude ?? 0.0
         
@@ -133,12 +162,12 @@ extension LocationManager: CLLocationManagerDelegate {
             // button.text = "Not in eclipse path."
             print("Not in eclipse path.")
             
-        }
+        }*/
         
     }
     
     
-    
+    /*
     func convertTimes(data: [String]) -> [Int64] {
         let start = data[0].split(separator: ":").compactMap { Int($0) }
         let end = data[1].split(separator: ":").compactMap { Int($0) }
@@ -174,7 +203,7 @@ extension LocationManager: CLLocationManagerDelegate {
         let endUnix: Int64 = currentDateTimezoneCorrectedUnix + Int64(end[0] * 3600) + Int64(end[1] * 60) + Int64(end[2])
 
         return [startUnix, endUnix]
-    }
+    }*/
 
         
 
