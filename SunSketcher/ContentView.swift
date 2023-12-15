@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import AVFoundation
+import Photos
+import CoreLocation
 
 
 struct ContentView: View {
     @EnvironmentObject var locationManager: LocationManager
+    @State private var isPermissionRequested = false
     
     var body: some View {
         NavigationStack {
@@ -35,11 +39,47 @@ struct ContentView: View {
                     })
                 }
             }
-            
-            
+            .onAppear {
+                if !isPermissionRequested {
+                    requestPermissions()
+                }
+            }
+        }
+    }
+    
+    private func requestPermissions() {
+        // Request location permission
+        locationManager.requestLocationPermission()
+        
+        // Request camera permission
+        AVCaptureDevice.requestAccess(for: .video) { granted in
+            if granted {
+                // Camera permission granted
+                print("Camera permission granted")
+            } else {
+                // Camera permission denied
+                print("Camera permission denied")
+            }
         }
         
+        // Request photo library permission
+        PHPhotoLibrary.requestAuthorization { status in
+            switch status {
+            case .authorized:
+                // Photo library permission granted
+                print("Photo library permission granted")
+            case .denied, .restricted:
+                // Photo library permission denied
+                print("Photo library permission denied")
+            case .notDetermined:
+                // The user hasn't made a choice yet
+                print("Photo library permission not determined")
+            default:
+                break
+            }
+        }
         
+        isPermissionRequested = true
     }
 }
 
