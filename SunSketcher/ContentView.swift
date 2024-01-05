@@ -14,6 +14,7 @@ import CoreLocation
 struct ContentView: View {
     @EnvironmentObject var locationManager: LocationManager
     @State private var isPermissionRequested = false
+    private var main = SunSketcherApp()
     
     var body: some View {
         NavigationStack {
@@ -24,10 +25,12 @@ struct ContentView: View {
                     
                     Text("Latitude, Longitude:\n\(locationManager.location?.coordinate.latitude ?? 0.0),\(locationManager.location?.coordinate.longitude ?? 0.0)")
                     Text("Altitude:\n\(locationManager.location?.altitude ?? 0.0) m").padding()
-                    //Text("Altitude: \n%.1f m", locationManager.location?.altitude ?? 0.0)
-                    //Text("Timestamp:\n\(Date())")
                     
-            
+                    Button("Get Location") {
+                        main.getLocation(locationMan: locationManager)
+                    }
+                    
+                    
                     NavigationLink(destination: CameraUI2(), label: {
                         Text("Camera Function")
                             .bold()
@@ -92,35 +95,8 @@ struct CameraUI2: View {
     var body: some View {
         
         CustomCameraView(capturedImage: $capturedImage)
+            .navigationBarBackButtonHidden(true)
         
-        /*ZStack {
-            if capturedImage != nil {
-                Image(uiImage: capturedImage!)
-                    .resizable()
-                    .scaledToFill()
-                    .ignoresSafeArea()
-            } else {
-                Color(UIColor.systemBackground)
-            }
-            
-            VStack {
-                Spacer()
-                Button(action: {
-                    isCustomCameraViewPresented.toggle()
-                }, label: {
-                    Image(systemName: "camera.fill")
-                        .font(.largeTitle)
-                        .padding()
-                        .background(Color.black)
-                        .foregroundColor(.white)
-                        .clipShape(Circle())
-                })
-                .padding(.bottom)
-                .sheet(isPresented: $isCustomCameraViewPresented, content: {
-                    CustomCameraView(capturedImage: $capturedImage)
-                })
-            }
-        }*/
         
     }
 }

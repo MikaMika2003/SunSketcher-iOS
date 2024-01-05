@@ -14,6 +14,9 @@
 		8434D22C2A99221A0068D985 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434D22B2A99221A0068D985 /* ContentView.swift */; };
 		8434D22E2A99221B0068D985 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8434D22D2A99221B0068D985 /* Assets.xcassets */; };
 		8434D2312A99221B0068D985 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8434D2302A99221B0068D985 /* Preview Assets.xcassets */; };
+		844D88BE2B47520500258284 /* Metadata+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D88BC2B47520500258284 /* Metadata+CoreDataClass.swift */; };
+		844D88BF2B47520500258284 /* Metadata+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D88BD2B47520500258284 /* Metadata+CoreDataProperties.swift */; };
+		844D88C12B47C4A600258284 /* MetadataDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D88C02B47C4A600258284 /* MetadataDB.swift */; };
 		848A5B482ABB3A64000DB76D /* CameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A5B472ABB3A64000DB76D /* CameraControl.swift */; };
 		84C307232AA8EC020052078B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C307222AA8EC020052078B /* LocationManager.swift */; };
 		84CDE40D2AB0C8560011ED23 /* LocToTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDE40C2AB0C8560011ED23 /* LocToTime.swift */; };
@@ -31,20 +34,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8408892A2AD473A400F2A93C /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CameraService.swift; path = SunSketcher/CameraService.swift; sourceTree = SOURCE_ROOT; };
-		8408892C2AD477E500F2A93C /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CameraView.swift; path = SunSketcher/CameraView.swift; sourceTree = SOURCE_ROOT; };
-		84194DA82AE83FBB0057A0EB /* Sunset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Sunset.swift; path = SunSketcher/Sunset.swift; sourceTree = SOURCE_ROOT; };
+		8408892A2AD473A400F2A93C /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CameraService.swift; path = Sunsketcher/CameraFunctionality/CameraService.swift; sourceTree = SOURCE_ROOT; };
+		8408892C2AD477E500F2A93C /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CameraView.swift; path = Sunsketcher/CameraFunctionality/CameraView.swift; sourceTree = SOURCE_ROOT; };
+		84194DA82AE83FBB0057A0EB /* Sunset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Sunset.swift; path = Sunsketcher/Location/Sunset.swift; sourceTree = SOURCE_ROOT; };
 		8434D2262A99221A0068D985 /* Sunsketcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sunsketcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8434D2292A99221A0068D985 /* SunsketcherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunsketcherApp.swift; sourceTree = "<group>"; };
 		8434D22B2A99221A0068D985 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8434D22D2A99221B0068D985 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8434D2302A99221B0068D985 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		844D88BC2B47520500258284 /* Metadata+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Metadata+CoreDataClass.swift"; path = "../../Metadata+CoreDataClass.swift"; sourceTree = "<group>"; };
+		844D88BD2B47520500258284 /* Metadata+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Metadata+CoreDataProperties.swift"; path = "../../Metadata+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		844D88C02B47C4A600258284 /* MetadataDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MetadataDB.swift; path = SunSketcher/Database/MetadataDB.swift; sourceTree = SOURCE_ROOT; };
 		846E32A52ABA28E1004FEF60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		848A5B472ABB3A64000DB76D /* CameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CameraControl.swift; path = SunSketcher/CameraControl.swift; sourceTree = SOURCE_ROOT; };
+		848A5B472ABB3A64000DB76D /* CameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CameraControl.swift; path = Sunsketcher/CameraFunctionality/CameraControl.swift; sourceTree = SOURCE_ROOT; };
+		848B1B4A2B3B5B4700DE9856 /* Metadata.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Metadata.xcdatamodel; sourceTree = "<group>"; };
 		84C307222AA8EC020052078B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		84CDE40C2AB0C8560011ED23 /* LocToTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocToTime.swift; path = Sunsketcher/LocToTime.swift; sourceTree = SOURCE_ROOT; };
+		84CDE40C2AB0C8560011ED23 /* LocToTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocToTime.swift; path = Sunsketcher/Location/LocToTime.swift; sourceTree = SOURCE_ROOT; };
 		84CDE4122AB0CB950011ED23 /* SunsketcherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SunsketcherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		84D07C7A2AD5A1D4001E1DD4 /* CustomCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomCameraView.swift; path = SunSketcher/CustomCameraView.swift; sourceTree = SOURCE_ROOT; };
+		84D07C7A2AD5A1D4001E1DD4 /* CustomCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomCameraView.swift; path = Sunsketcher/CameraFunctionality/CustomCameraView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,18 +92,14 @@
 		8434D2282A99221A0068D985 /* Sunsketcher */ = {
 			isa = PBXGroup;
 			children = (
+				848B1B482B3B429000DE9856 /* Database */,
+				848B1B472B3B428700DE9856 /* Location */,
+				848B1B462B3B427A00DE9856 /* CameraFunctionality */,
 				846E32A52ABA28E1004FEF60 /* Info.plist */,
-				84CDE40C2AB0C8560011ED23 /* LocToTime.swift */,
-				84C307222AA8EC020052078B /* LocationManager.swift */,
 				8434D2292A99221A0068D985 /* SunsketcherApp.swift */,
 				8434D22B2A99221A0068D985 /* ContentView.swift */,
 				8434D22D2A99221B0068D985 /* Assets.xcassets */,
 				8434D22F2A99221B0068D985 /* Preview Content */,
-				8408892A2AD473A400F2A93C /* CameraService.swift */,
-				8408892C2AD477E500F2A93C /* CameraView.swift */,
-				84D07C7A2AD5A1D4001E1DD4 /* CustomCameraView.swift */,
-				848A5B472ABB3A64000DB76D /* CameraControl.swift */,
-				84194DA82AE83FBB0057A0EB /* Sunset.swift */,
 			);
 			path = Sunsketcher;
 			sourceTree = "<group>";
@@ -107,6 +110,38 @@
 				8434D2302A99221B0068D985 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		848B1B462B3B427A00DE9856 /* CameraFunctionality */ = {
+			isa = PBXGroup;
+			children = (
+				8408892A2AD473A400F2A93C /* CameraService.swift */,
+				8408892C2AD477E500F2A93C /* CameraView.swift */,
+				84D07C7A2AD5A1D4001E1DD4 /* CustomCameraView.swift */,
+				848A5B472ABB3A64000DB76D /* CameraControl.swift */,
+			);
+			path = CameraFunctionality;
+			sourceTree = "<group>";
+		};
+		848B1B472B3B428700DE9856 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				84CDE40C2AB0C8560011ED23 /* LocToTime.swift */,
+				84C307222AA8EC020052078B /* LocationManager.swift */,
+				84194DA82AE83FBB0057A0EB /* Sunset.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		848B1B482B3B429000DE9856 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				844D88BC2B47520500258284 /* Metadata+CoreDataClass.swift */,
+				844D88BD2B47520500258284 /* Metadata+CoreDataProperties.swift */,
+				848B1B492B3B5B4700DE9856 /* Metadata.xcdatamodeld */,
+				844D88C02B47C4A600258284 /* MetadataDB.swift */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				844D88BE2B47520500258284 /* Metadata+CoreDataClass.swift in Sources */,
 				8408892B2AD473A400F2A93C /* CameraService.swift in Sources */,
 				8434D22C2A99221A0068D985 /* ContentView.swift in Sources */,
 				84D07C7B2AD5A1D4001E1DD4 /* CustomCameraView.swift in Sources */,
@@ -217,6 +253,8 @@
 				8434D22A2A99221A0068D985 /* SunsketcherApp.swift in Sources */,
 				84C307232AA8EC020052078B /* LocationManager.swift in Sources */,
 				84194DA92AE83FBB0057A0EB /* Sunset.swift in Sources */,
+				844D88BF2B47520500258284 /* Metadata+CoreDataProperties.swift in Sources */,
+				844D88C12B47C4A600258284 /* MetadataDB.swift in Sources */,
 				848A5B482ABB3A64000DB76D /* CameraControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -500,6 +538,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		848B1B492B3B5B4700DE9856 /* Metadata.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				848B1B4A2B3B5B4700DE9856 /* Metadata.xcdatamodel */,
+			);
+			currentVersion = 848B1B4A2B3B5B4700DE9856 /* Metadata.xcdatamodel */;
+			path = Metadata.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8434D21E2A99221A0068D985 /* Project object */;
 }

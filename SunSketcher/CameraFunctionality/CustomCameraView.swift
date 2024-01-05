@@ -58,20 +58,6 @@ struct CustomCameraView: View {
                 
                 
             }
-            
-            /*VStack {
-                Spacer()
-                
-                Button(action: {
-                    cameraService.capturePhoto()
-                }, label: {
-                    Image(systemName: "circle")
-                        .font(.system(size: 72))
-                        .foregroundColor(.white)
-                })
-                .padding(.bottom)
-            }*/
-            
         }
     }
 }

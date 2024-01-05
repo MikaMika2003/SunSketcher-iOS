@@ -25,6 +25,8 @@ class CameraService {
     var photoCount = 0
     var maxPhotoCount = 41
     
+    // For location needed
+    var locationManager = LocationManager.shared
     
     
     
@@ -109,11 +111,11 @@ class CameraService {
         let calendar = Calendar.current
         
         // Check if it's the specified time
-     
-        return calendar.component(.hour, from: currentDate) == 21
-        && calendar.component(.minute, from: currentDate) == 00
-        && calendar.component(.day, from: currentDate) == 21
-        && calendar.component(.month, from: currentDate) == 11
+        
+        return calendar.component(.hour, from: currentDate) == 9
+        && calendar.component(.minute, from: currentDate) == 38
+        && calendar.component(.day, from: currentDate) == 5
+        && calendar.component(.month, from: currentDate) == 1
     }
 
         
@@ -221,21 +223,30 @@ class CameraService {
     func saveImageToDocumentDirectory(_ image: UIImage) {
         // Specify the directory where images will be saved
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let imageSaveDirectory = documentsDirectory.appendingPathComponent("CapturedImages")
+        let imageSaveDirectory = documentsDirectory.appendingPathComponent("SunSketcher")
+        
+        let prefs = UserDefaults.standard
 
         // Create the directory if it doesn't exist
         do {
             try FileManager.default.createDirectory(at: imageSaveDirectory, withIntermediateDirectories: true, attributes: nil)
+            prefs.set(imageSaveDirectory, forKey: "imageFolderDirectory")
+            
         } catch {
             print("Error creating directory: \(error.localizedDescription)")
             return
         }
+        print("Image Directory: \(imageSaveDirectory)")
 
         // Generate a unique filename based on the current date and time
-        let dateFormatter = DateFormatter()
+        /*let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMdd_HHmmss"
-        let fileName = "\(dateFormatter.string(from: Date())).jpg"
-
+        let fileName = "\(dateFormatter.string(from: Date())).jpg"*/
+        
+        // Generate a unique filename based on unix timestamp
+        let timestamp = Int64(Date().timeIntervalSince1970)
+        let fileName = "IMAGE_" + "\(timestamp)" + "_"
+        
         // Save the image to the document directory with the custom name
         let imageURL = imageSaveDirectory.appendingPathComponent(fileName)
 
@@ -243,6 +254,17 @@ class CameraService {
             do {
                 try imageData.write(to: imageURL)
                 print("Image saved to: \(imageURL)")
+                
+                let lat = prefs.float(forKey: "lat")
+                let lon = prefs.float(forKey: "lon")
+                let alt = prefs.float(forKey: "alt")
+                
+                print("\(Float(lat))")
+                print("\(Float(lon))")
+                print("\(Float(alt))")
+                
+                //MetadataDAO.shared.addImageMeta(filepath: String(contentsOf: imageURL), latitude: Double(lat), longitude: Double(lon), altitude: Double(alt), captureTime: timestamp)
+
 
                 // Check time accuracy
                 // Record the current date and time
